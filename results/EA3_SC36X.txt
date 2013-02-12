@@ -1,0 +1,7 @@
+INFO: TK7 in: 0 out: 106 duration: 118 
+INFO: TK4 in: 0 out: 50 duration: 50 
+INFO: TK5 in: 0 out: 71 duration: 71 
+INFO: TK2 in: 0 out: 144 duration: 144 
+INFO: TK3 in: 0 out: 100 duration: 100 
+INFO: TK1 in: 0 out: 221 duration: 221 
+INFO: TK8 in: 0 out: 92 duration: 112 

@@ -1,0 +1,7 @@
+INFO: TK12 in: 0 out: 119 duration: 135 
+INFO: TK14 in: 43 out: 169 duration: 169 
+INFO: TK36 in: 12 out: 120 duration: 120 
+INFO: TK23 in: 0 out: 728 duration: 754 
+INFO: TK5 in: 0 out: 114 duration: 200 
+INFO: TK2 in: 38 out: 320 duration: 320 
+INFO: TK1 in: 0 out: 72 duration: 85 

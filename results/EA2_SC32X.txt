@@ -1,0 +1,2 @@
+INFO: TK2 in: 2826 out: 4782 duration: 4782 
+INFO: TK1 in: 0 out: 2776 duration: 4782 

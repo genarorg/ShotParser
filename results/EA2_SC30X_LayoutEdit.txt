@@ -1,0 +1,3 @@
+INFO: TK12 in: 0 out: 50 duration: 75 
+INFO: TK8 in: 0 out: 52 duration: 71 
+INFO: TK1 in: 0 out: 180 duration: 230 

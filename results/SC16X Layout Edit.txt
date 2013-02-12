@@ -1,0 +1,2 @@
+INFO: TK19 in: 24 out: 100 duration: 100 
+INFO: TK15 in: 6 out: 91 duration: 91 
