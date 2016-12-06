@@ -71,10 +71,8 @@ def resetColors():
     print Fore.RESET
 
 def generateThumbnail(path, fname, cduration):
-    filepath = os.path.dirname(os.path.realpath(__file__)) \
-        + '\\thumbs\\' + fname + '.jpg'
-    os.system('ffmpeg -loglevel panic -i "%s" -vframes 1 -an -s 400x222 -ss %s %s'
-               % (os.path.abspath(path), cduration / 2 / 24, filepath))
+    filepath = os.path.dirname(os.path.realpath(__file__)) + '\\thumbs\\' + fname + '.jpg'
+    os.system('ffmpeg -loglevel panic -i "%s" -vframes 1 -an -s 400x222 -ss %s %s' % (os.path.abspath(path), cduration / 2 / 24, filepath))
     return filepath
 
 def importShots():
@@ -138,28 +136,20 @@ def importToShotgun():
     parse()
 
     # show progress bar
-
     widgets = ['Generating thumbnails: ', SimpleProgress(), ' ', Bar()]
     pbar = ProgressBar(widgets=widgets, maxval=len(clips)).start()
     i = 0
     for item in clips:
-        thumbpath = generateThumbnail(item.fileurl, item.name,
-                item.duration)
+        thumbpath = generateThumbnail(item.fileurl, item.name, item.duration)
         item.thumbpath = thumbpath
-
-        # print item.thumbpath
-
         i += 1
         pbar.update(i)
-    pbar.finish()
 
+    pbar.finish()
     continueOption = raw_input(Fore.RED
                                + '%s shots were found and will be created under %s, Continue? [y/n]: '
                                 % (len(clips), sgReel + '_'
                                + sgSequence + '_' + sgScene))
-
-    # continueOption = "y"
-
     if continueOption == 'y' or continueOption == 'Y':
         importShots()
     else:
@@ -177,18 +167,15 @@ def generateReport():
         takeCounter += 1
 
     if len(errorClips) > 0:
-        print '\n' + Fore.RED \
-            + 'The following clips have either no tail at the end, beginning, or both:\n'
+        print '\n' + Fore.RED + 'The following clips have either no tail at the end, beginning, or both:\n'
 
         # get file name
 
         fileName = os.path.splitext(os.path.basename(XMLFiles[1]))[0]
         for (key, clip) in errorClips.iteritems():
-            outPutString = '%s in: %s out: %s duration: %s' % (key,
-                    clip.inPoint, clip.outPoint, clip.duration)
+            outPutString = '%s in: %s out: %s duration: %s' % (key, clip.inPoint, clip.outPoint, clip.duration)
             print outPutString
-            text_file = open("D:\Trabajos\ShotParser\\results\%s.txt"
-                             % fileName, 'a')
+            text_file = open("D:\Trabajos\ShotParser\\results\%s.txt" % fileName, 'a')
             text_file.write('INFO: %s \n' % outPutString)
             text_file.close()
     else:
@@ -211,7 +198,6 @@ sgSequence = 'TSQ01X'
 sgScene = 'TSC01X'
 
 for element in root.iter('sequence'):
-
     id = element.get('id')
     duration = element.find('./duration').text
     name = element.find('./name').text
@@ -224,7 +210,6 @@ choiceCounter = 1
 print 'The following sequences were found: \n'
 
 for choice in sequences:
-
     print Fore.YELLOW + '[%s] %s' % (choiceCounter, choice.name)
     choiceCounter += 1
 
